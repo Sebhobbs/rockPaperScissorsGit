@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+function computerPlay(){
+    //let options = ["rock", "paper", "scissors"];
+    let computerChoice = Math.random();
+    if (computerChoice <=0.3334){
+        console.log("rock");
+        return "rock";
+    }else if (computerChoice <=0.6667){
+        console.log("paper");
+        return "paper";
+    }else if(computerChoice<=1){
+        console.log("scissors");
+        return "scissors";
+    }else{
+        console.log("error");
+        return "error";
+    }
+}
+
+function round(playerSelection, computerSelection){
+    playerSelection = prompt("Enter Rock, Paper or Scissors", "");
+    let playerSelection1 = playerSelection.toLowerCase();
+    computerSelection = computerPlay();
+    let victory = "You win - " + playerSelection1 + " beats " + computerSelection + "!";
+    let defeat =  "You lose - " + computerSelection + " beats " + playerSelection + "!";
+    let draw = "That's a draw!"
+    let result;
+    //(playerSelection1 === "rock" && computerSelection === "scissors") || (playerSelection1 ==="paper" && computerSelection === "rock") || (playerSelection1 === "scissors" && computerSelection === "paper") ? result = victory : result = defeat;
+    switch(true){
+        case playerSelection1 === "rock" && computerSelection === "scissors" :
+        case playerSelection1 === "paper" && computerSelection === "rock" : 
+        case playerSelection1 === "scissors" && computerSelection === "paper" :
+        result = victory;
+        break; 
+        case playerSelection1 === "rock" && computerSelection === "paper" :
+        case playerSelection1 === "paper" && computerSelection === "scissors" : 
+        case playerSelection1 === "scissors" && computerSelection === "rock" :
+        result = defeat;
+        break;
+        case playerSelection1 === "rock" && computerSelection === "rock" :
+        case playerSelection1 === "paper" && computerSelection === "paper" : 
+        case playerSelection1 === "scissors" && computerSelection === "scissors" :
+        result = draw;
+        break;
+        default: result = "Error"
+    }
+    console.log(result);
+    /**if (playerSelection1 === "rock" && computerSelection === "scissors") || if (playerSelection1 ==="paper" && computerSelection === "rock") || if (playerSelection1 === "scissors" && computerSelection === "paper"){
+        return "You win! " + playerSelection1 " beats " + computerSelection + "!";
+    } else {
+        return "You lose! " + computerSelection + " beats " + playerSelection1 + "!";
+    }**/
+}
+
+
+</script>
+
+</html>
